@@ -3,7 +3,7 @@ package caller
 import (
 	"fmt"
 
-	"github.com/nju-iot/edgex_admin/config"
+	"github.com/nju-iot/security-certificate/config"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"

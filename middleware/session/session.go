@@ -42,12 +42,13 @@ func MiddlewareSession() gin.HandlerFunc {
 			sessionID = uuid.NewV4().String()
 		}
 		session := sessions.Default(c)
-		sessionValue := session.Get(sessionID)
-		if sessionValue != nil {
-			session.Set(sessionID, sessionValue)
-			_ = session.Save()
-		}
-		c.Set(CookieName, sessionID)
+		_ = session.Get(sessionID)
+		// sessionValue := session.Get(sessionID)
+		// if sessionValue != nil {
+		// 	session.Set(sessionID, sessionValue)
+		// 	_ = session.Save()
+		// }
+		// c.Set(CookieName, sessionID)
 		c.Next()
 	}
 }

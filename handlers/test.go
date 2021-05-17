@@ -15,8 +15,10 @@ func PingV2(c *gin.Context) {
 
 func Test(c *gin.Context) *resp.JSONOutput {
 	bodyBytes, _ := ioutil.ReadAll(c.Request.Body)
-	fmt.Printf(string(bodyBytes))
-	d := EncryptData(bodyBytes)
-	fmt.Printf(string(d))
-	return resp.SampleJSON(c, resp.RespCodeSuccess, d)
+	fmt.Printf("原始数据: %s\n", string(bodyBytes))
+	d := testEncryptData(bodyBytes)
+	fmt.Printf("公钥加密后的数据：%s\n", d)
+
+	fmt.Printf("%s\n", string(DecryptData(d)))
+	return resp.SampleJSON(c, resp.RespCodeSuccess, string(DecryptData(d)))
 }

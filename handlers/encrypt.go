@@ -11,7 +11,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/nju-iot/securiy-certificate/logs"
+	"github.com/nju-iot/security-certificate/logs"
 )
 
 var prvKey2 []byte
@@ -19,17 +19,18 @@ var pubKey1 []byte
 var pubKey2 []byte
 
 func readFromFile() {
-	data, err := ioutil.ReadFile("../keys/prvKey2.txt")
+	data, err := ioutil.ReadFile("keys/prvKey2.txt")
 	if err != nil {
 		logs.Error("%v", err)
 	}
 	prvKey2 = data
-	data, err = ioutil.ReadFile("../keys/pubKey1.txt")
+	data, err = ioutil.ReadFile("keys/pubKey1.txt")
 	if err != nil {
 		logs.Error("%v", err)
 	}
 	pubKey1 = data
-	data, err = ioutil.ReadFile("../keys/pubKey1.txt")
+	// pubKey1 = ([]byte)("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCulH3yfmzpG8N5QJQttaNMW9Jw\nnQovz4xUYuXNEf8XeYR+l07nLSBJBHY2qFFBOp/0zzGC7Yz1ZxMJOx3ojw+Nnflb\nRR+oRIGed23WigKJrja5uSWg4CGic7OvkV6DKcrkWVhDnVlBnoblrg20hmpNHCO+\nGWWOolPyXyjeXZj26wIDAQAB")
+	data, err = ioutil.ReadFile("keys/pubKey2.txt")
 	if err != nil {
 		logs.Error("%v", err)
 	}
@@ -41,6 +42,13 @@ func EncryptData(data []byte) []byte {
 		readFromFile()
 	}
 	return rsaEncrypt(data, pubKey1)
+}
+
+func testEncryptData(data []byte) []byte {
+	if prvKey2 == nil || pubKey2 == nil || pubKey1 == nil {
+		readFromFile()
+	}
+	return rsaEncrypt(data, pubKey2)
 }
 
 func DecryptData(data []byte) []byte {

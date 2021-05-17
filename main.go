@@ -11,7 +11,6 @@ import (
 	"github.com/nju-iot/security-certificate/logs"
 
 	"github.com/nju-iot/security-certificate/middleware/cors"
-	"github.com/nju-iot/security-certificate/middleware/session"
 	"go.uber.org/zap"
 )
 
@@ -36,8 +35,8 @@ func main() {
 	r.Use(cors.MiddlewareCors())
 
 	// session中间件
-	r.Use(session.EnableRedisSession())
-	r.Use(session.MiddlewareSession())
+	// r.Use(session.EnableRedisSession())
+	// r.Use(session.MiddlewareSession())
 
 	registerRouter(r)
 	_ = r.Run(config.Server.Port)

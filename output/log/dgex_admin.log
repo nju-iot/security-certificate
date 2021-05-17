@@ -2,3 +2,279 @@
 2021-05-17T10:20:05.423+0800	INFO	zap@v0.0.1/zap.go:46	//security-certificate/user/test	{"status": 500, "method": "POST", "path": "//security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T02:20:05Z", "latency": 0.036905499}
 2021-05-17T10:47:25.437+0800	ERROR	zap@v0.0.1/zap.go:93	[Recovery from panic]	{"time": "2021-05-17T10:47:25.436+0800", "error": "runtime error: invalid memory address or nil pointer dereference", "request": "POST //security-certificate/user/test HTTP/1.1\r\nHost: localhost:6789\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nCache-Control: no-cache\r\nConnection: keep-alive\r\nContent-Length: 78\r\nContent-Type: application/json\r\nPostman-Token: 843800d8-a37d-4903-9bc1-ae5a54f2b979\r\nUser-Agent: PostmanRuntime/7.26.8\r\n\r\n", "stack": "goroutine 36 [running]:\nruntime/debug.Stack(0x0, 0xc0000de000, 0x136)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/debug/stack.go:24 +0x9f\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1.1(0xc0000be100, 0xc0004331a0, 0x1)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:97 +0x2aa\npanic(0x169c6e0, 0x1b8db40)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9\ngithub.com/gin-contrib/sessions.(*session).Session(0xc0000aa050, 0x100ce7b)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:125 +0x49\ngithub.com/gin-contrib/sessions.(*session).Get(0xc0000aa050, 0x166d280, 0xc000094110, 0x24, 0x0)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:78 +0x2b\ngithub.com/nju-iot/security-certificate/middleware/session.MiddlewareSession.func1(0xc0000be100)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/session/session.go:45 +0xc5\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0000be100)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/sessions.Sessions.func1(0xc0000be100)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:52 +0x186\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0000be100)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc0000be100)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0000be100)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1(0xc0000be100)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0000be100)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.Ginzap.func1(0xc0000be100)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0000be100)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-gonic/gin.serveError(0xc0000be100, 0x194, 0x1b51ff0, 0x12, 0x12)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:525 +0x38\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc0003a2820, 0xc0000be100)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:518 +0x3dc\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc0003a2820, 0x1823f60, 0xc0000c6000, 0xc0000be000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c\nnet/http.serverHandler.ServeHTTP(0xc0004760e0, 0x1823f60, 0xc0000c6000, 0xc0000be000)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3\nnet/http.(*conn).serve(0xc0000a80a0, 0x1826060, 0xc00009c040)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad\ncreated by net/http.(*Server).Serve\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c\n"}
 2021-05-17T10:47:25.451+0800	INFO	zap@v0.0.1/zap.go:46	//security-certificate/user/test	{"status": 500, "method": "POST", "path": "//security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T02:47:25Z", "latency": 0.015123169}
+2021-05-17T10:51:08.113+0800	ERROR	zap@v0.0.1/zap.go:93	[Recovery from panic]	{"time": "2021-05-17T10:51:08.113+0800", "error": "runtime error: invalid memory address or nil pointer dereference", "request": "POST //security-certificate/user/test HTTP/1.1\r\nHost: localhost:6789\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nCache-Control: no-cache\r\nConnection: keep-alive\r\nContent-Length: 78\r\nContent-Type: application/json\r\nPostman-Token: e6c94af9-3a06-4403-b92e-f94a57e744cb\r\nUser-Agent: PostmanRuntime/7.26.8\r\n\r\n", "stack": "goroutine 8 [running]:\nruntime/debug.Stack(0x0, 0xc0004e2280, 0x136)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/debug/stack.go:24 +0x9f\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1.1(0xc0004e6400, 0xc0004b11a0, 0x1)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:97 +0x2aa\npanic(0x169c7e0, 0x1b8db40)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9\ngithub.com/gin-contrib/sessions.(*session).Session(0xc0004d1180, 0x100ce7b)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:125 +0x49\ngithub.com/gin-contrib/sessions.(*session).Get(0xc0004d1180, 0x166d380, 0xc0004a7750, 0x24, 0x0)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:78 +0x2b\ngithub.com/nju-iot/security-certificate/middleware/session.MiddlewareSession.func1(0xc0004e6400)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/session/session.go:45 +0xc5\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0004e6400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/sessions.Sessions.func1(0xc0004e6400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:52 +0x186\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0004e6400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc0004e6400)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0004e6400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1(0xc0004e6400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0004e6400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.Ginzap.func1(0xc0004e6400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0004e6400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-gonic/gin.serveError(0xc0004e6400, 0x194, 0x1b51ff0, 0x12, 0x12)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:525 +0x38\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000328000, 0xc0004e6400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:518 +0x3dc\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000328000, 0x1824080, 0xc0004fc000, 0xc0004e6300)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c\nnet/http.serverHandler.ServeHTTP(0xc0003260e0, 0x1824080, 0xc0004fc000, 0xc0004e6300)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3\nnet/http.(*conn).serve(0xc0004d8820, 0x1826180, 0xc0004f0980)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad\ncreated by net/http.(*Server).Serve\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c\n"}
+2021-05-17T10:51:08.114+0800	INFO	zap@v0.0.1/zap.go:46	//security-certificate/user/test	{"status": 500, "method": "POST", "path": "//security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T02:51:08Z", "latency": 0.00203521}
+2021-05-17T10:58:52.691+0800	ERROR	zap@v0.0.1/zap.go:93	[Recovery from panic]	{"time": "2021-05-17T10:58:52.691+0800", "error": "runtime error: invalid memory address or nil pointer dereference", "request": "POST //security-certificate/user/test HTTP/1.1\r\nHost: localhost:6789\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nCache-Control: no-cache\r\nConnection: keep-alive\r\nContent-Length: 78\r\nContent-Type: application/json\r\nPostman-Token: f2db18ae-de7b-481e-9ff3-411e1a45fee1\r\nUser-Agent: PostmanRuntime/7.26.8\r\n\r\n", "stack": "goroutine 7 [running]:\nruntime/debug.Stack(0x0, 0xc000150000, 0x136)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/debug/stack.go:24 +0x9f\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1.1(0xc000146000, 0xc0003cc5a0, 0x1)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:97 +0x2aa\npanic(0x169c840, 0x1b8db40)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9\ngithub.com/gin-contrib/sessions.(*session).Session(0xc0001001e0, 0x100ce7b)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:125 +0x49\ngithub.com/gin-contrib/sessions.(*session).Get(0xc0001001e0, 0x166d3e0, 0xc000116360, 0x1, 0x1)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:78 +0x2b\ngithub.com/nju-iot/security-certificate/middleware/session.MiddlewareSession.func1(0xc000146000)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/session/session.go:47 +0x135\ngithub.com/gin-gonic/gin.(*Context).Next(0xc000146000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/sessions.Sessions.func1(0xc000146000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:52 +0x186\ngithub.com/gin-gonic/gin.(*Context).Next(0xc000146000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc000146000)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5\ngithub.com/gin-gonic/gin.(*Context).Next(0xc000146000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1(0xc000146000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68\ngithub.com/gin-gonic/gin.(*Context).Next(0xc000146000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.Ginzap.func1(0xc000146000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce\ngithub.com/gin-gonic/gin.(*Context).Next(0xc000146000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-gonic/gin.serveError(0xc000146000, 0x194, 0x1b51ff0, 0x12, 0x12)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:525 +0x38\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc0001301a0, 0xc000146000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:518 +0x3dc\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc0001301a0, 0x1824100, 0xc0001361c0, 0xc000410000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c\nnet/http.serverHandler.ServeHTTP(0xc0001360e0, 0x1824100, 0xc0001361c0, 0xc000410000)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3\nnet/http.(*conn).serve(0xc0004000a0, 0x1826200, 0xc00006c100)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad\ncreated by net/http.(*Server).Serve\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c\n"}
+2021-05-17T10:58:52.697+0800	INFO	zap@v0.0.1/zap.go:46	//security-certificate/user/test	{"status": 500, "method": "POST", "path": "//security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T02:58:52Z", "latency": 0.006403008}
+2021-05-17T10:59:28.426+0800	ERROR	zap@v0.0.1/zap.go:93	[Recovery from panic]	{"time": "2021-05-17T10:59:28.426+0800", "error": "runtime error: invalid memory address or nil pointer dereference", "request": "POST //security-certificate/user/test HTTP/1.1\r\nHost: localhost:6789\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nCache-Control: no-cache\r\nConnection: keep-alive\r\nContent-Length: 78\r\nContent-Type: application/json\r\nPostman-Token: 1178d1e2-2281-42f7-ab23-71a8023912ee\r\nUser-Agent: PostmanRuntime/7.26.8\r\n\r\n", "stack": "goroutine 35 [running]:\nruntime/debug.Stack(0x0, 0xc000354000, 0x136)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/debug/stack.go:24 +0x9f\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1.1(0xc000340200, 0xc0004246c0, 0x1)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:97 +0x2aa\npanic(0x169c860, 0x1b8db40)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9\ngithub.com/gin-contrib/sessions.(*session).Session(0xc00031e1e0, 0x100ce7b)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:125 +0x49\ngithub.com/gin-contrib/sessions.(*session).Get(0xc00031e1e0, 0x166d400, 0xc000306320, 0x24, 0x0)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:78 +0x2b\ngithub.com/nju-iot/security-certificate/middleware/session.MiddlewareSession.func1(0xc000340200)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/session/session.go:49 +0xe5\ngithub.com/gin-gonic/gin.(*Context).Next(0xc000340200)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/sessions.Sessions.func1(0xc000340200)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:52 +0x186\ngithub.com/gin-gonic/gin.(*Context).Next(0xc000340200)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc000340200)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5\ngithub.com/gin-gonic/gin.(*Context).Next(0xc000340200)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1(0xc000340200)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68\ngithub.com/gin-gonic/gin.(*Context).Next(0xc000340200)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.Ginzap.func1(0xc000340200)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce\ngithub.com/gin-gonic/gin.(*Context).Next(0xc000340200)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-gonic/gin.serveError(0xc000340200, 0x194, 0x1b51ff0, 0x12, 0x12)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:525 +0x38\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc0003241a0, 0xc000340200)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:518 +0x3dc\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc0003241a0, 0x1824120, 0xc00032a1c0, 0xc000340100)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c\nnet/http.serverHandler.ServeHTTP(0xc00032a0e0, 0x1824120, 0xc00032a1c0, 0xc000340100)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3\nnet/http.(*conn).serve(0xc00031c140, 0x1826220, 0xc00030c300)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad\ncreated by net/http.(*Server).Serve\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c\n"}
+2021-05-17T10:59:28.435+0800	INFO	zap@v0.0.1/zap.go:46	//security-certificate/user/test	{"status": 500, "method": "POST", "path": "//security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T02:59:28Z", "latency": 0.009613287}
+2021-05-17T11:00:34.237+0800	ERROR	zap@v0.0.1/zap.go:93	[Recovery from panic]	{"time": "2021-05-17T11:00:34.236+0800", "error": "runtime error: invalid memory address or nil pointer dereference", "request": "POST //security-certificate/user/test HTTP/1.1\r\nHost: localhost:6789\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nCache-Control: no-cache\r\nConnection: keep-alive\r\nContent-Length: 78\r\nContent-Type: application/json\r\nPostman-Token: f7b3da9b-a2df-45d2-a01b-f287713d1e85\r\nUser-Agent: PostmanRuntime/7.26.8\r\n\r\n", "stack": "goroutine 37 [running]:\nruntime/debug.Stack(0x0, 0xc0004be000, 0x136)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/debug/stack.go:24 +0x9f\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1.1(0xc0004a2000, 0xc0003ed0e0, 0x1)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:97 +0x2aa\npanic(0x169c840, 0x1b8db40)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9\ngithub.com/gin-contrib/sessions.(*session).Session(0xc0004ae000, 0x100ce7b)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:125 +0x49\ngithub.com/gin-contrib/sessions.(*session).Get(0xc0004ae000, 0x166d3e0, 0xc000488090, 0x24, 0x0)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:78 +0x2b\ngithub.com/nju-iot/security-certificate/middleware/session.MiddlewareSession.func1(0xc0004a2000)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/session/session.go:47 +0x128\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0004a2000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/sessions.Sessions.func1(0xc0004a2000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:52 +0x186\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0004a2000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc0004a2000)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0004a2000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1(0xc0004a2000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0004a2000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.Ginzap.func1(0xc0004a2000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce\ngithub.com/gin-gonic/gin.(*Context).Next(0xc0004a2000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-gonic/gin.serveError(0xc0004a2000, 0x194, 0x1b51ff0, 0x12, 0x12)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:525 +0x38\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc0000d4820, 0xc0004a2000)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:518 +0x3dc\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc0000d4820, 0x18240e0, 0xc00049c000, 0xc00009c400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c\nnet/http.serverHandler.ServeHTTP(0xc0004340e0, 0x18240e0, 0xc00049c000, 0xc00009c400)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3\nnet/http.(*conn).serve(0xc0004108c0, 0x18261e0, 0xc000426a00)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad\ncreated by net/http.(*Server).Serve\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c\n"}
+2021-05-17T11:00:34.242+0800	INFO	zap@v0.0.1/zap.go:46	//security-certificate/user/test	{"status": 500, "method": "POST", "path": "//security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:00:34Z", "latency": 0.006389652}
+2021-05-17T11:01:41.349+0800	ERROR	zap@v0.0.1/zap.go:93	[Recovery from panic]	{"time": "2021-05-17T11:01:41.348+0800", "error": "runtime error: invalid memory address or nil pointer dereference", "request": "POST //security-certificate/user/test HTTP/1.1\r\nHost: localhost:6789\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nCache-Control: no-cache\r\nConnection: keep-alive\r\nContent-Length: 78\r\nContent-Type: application/json\r\nPostman-Token: 3c4f10c9-73de-4ead-bc99-621faceb2180\r\nUser-Agent: PostmanRuntime/7.26.8\r\n\r\n", "stack": "goroutine 21 [running]:\nruntime/debug.Stack(0x0, 0xc000408280, 0x136)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/debug/stack.go:24 +0x9f\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1.1(0xc00040c400, 0xc0003d9260, 0x1)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:97 +0x2aa\npanic(0x169c700, 0x1b8db40)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9\ngithub.com/gin-contrib/sessions.(*session).Session(0xc0003f9130, 0x100ce7b)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:125 +0x49\ngithub.com/gin-contrib/sessions.(*session).Get(0xc0003f9130, 0x166d2a0, 0xc0003cf760, 0x24, 0x0)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:78 +0x2b\ngithub.com/nju-iot/security-certificate/middleware/session.MiddlewareSession.func1(0xc00040c400)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/session/session.go:45 +0xb8\ngithub.com/gin-gonic/gin.(*Context).Next(0xc00040c400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/sessions.Sessions.func1(0xc00040c400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/sessions@v0.0.3/sessions.go:52 +0x186\ngithub.com/gin-gonic/gin.(*Context).Next(0xc00040c400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc00040c400)\n\t/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5\ngithub.com/gin-gonic/gin.(*Context).Next(0xc00040c400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.RecoveryWithZap.func1(0xc00040c400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68\ngithub.com/gin-gonic/gin.(*Context).Next(0xc00040c400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-contrib/zap.Ginzap.func1(0xc00040c400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce\ngithub.com/gin-gonic/gin.(*Context).Next(0xc00040c400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b\ngithub.com/gin-gonic/gin.serveError(0xc00040c400, 0x194, 0x1b51ff0, 0x12, 0x12)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:525 +0x38\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc0002a8000, 0xc00040c400)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:518 +0x3dc\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc0002a8000, 0x1823f80, 0xc000430000, 0xc00040c300)\n\t/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c\nnet/http.serverHandler.ServeHTTP(0xc0002a60e0, 0x1823f80, 0xc000430000, 0xc00040c300)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3\nnet/http.(*conn).serve(0xc000294b40, 0x1826080, 0xc00029d400)\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad\ncreated by net/http.(*Server).Serve\n\t/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c\n"}
+2021-05-17T11:01:41.350+0800	INFO	zap@v0.0.1/zap.go:46	//security-certificate/user/test	{"status": 500, "method": "POST", "path": "//security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:01:41Z", "latency": 0.00227569}
+2021-05-17T11:11:53.232+0800	INFO	zap@v0.0.1/zap.go:46	//security-certificate/user/test	{"status": 404, "method": "POST", "path": "//security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:11:53Z", "latency": 0.000012913}
+2021-05-17T11:12:29.947+0800	INFO	logs/logs.go:105	[wraper-request] url=/security-certificate/user/test, header=map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Cache-Control:[no-cache] Connection:[keep-alive] Content-Length:[78] Content-Type:[application/json] Postman-Token:[9e1a2b84-9a4e-487f-b067-42aa9ec3e827] User-Agent:[PostmanRuntime/7.26.8]], body=&{0xc00000e380 <nil> <nil> false true {0 0} false false false 0x12e6ce0}
+2021-05-17T11:12:29.947+0800	ERROR	logs/logs.go:138	open ../keys/prvKey2.txt: no such file or directory
+2021-05-17T11:12:29.947+0800	ERROR	logs/logs.go:138	open ../keys/pubKey1.txt: no such file or directory
+2021-05-17T11:12:29.947+0800	ERROR	logs/logs.go:138	open ../keys/pubKey1.txt: no such file or directory
+2021-05-17T11:12:29.947+0800	ERROR	logs/logs.go:138	[wrapper-panic] error=public key error, stack=goroutine 7 [running]:
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1.1(0xc00051e100, 0xc000191410, 0xc02095a77877f690, 0x92d6bef4c, 0x1b75ce0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:29 +0x33f
+panic(0x1675080, 0xc00005a560)
+	/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9
+github.com/nju-iot/security-certificate/handlers.rsaEncrypt(0xc00053a000, 0x4e, 0x200, 0x0, 0x0, 0x0, 0x0, 0xc000504340, 0x0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:105 +0x1b1
+github.com/nju-iot/security-certificate/handlers.EncryptData(0xc00053a000, 0x4e, 0x200, 0x4e, 0x0, 0x0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:43 +0x89
+github.com/nju-iot/security-certificate/handlers.Test(0xc00051e100, 0x92d6bef4c)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/test.go:19 +0x125
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1(0xc00051e100)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:47 +0x164
+github.com/gin-gonic/gin.(*Context).Next(0xc00051e100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc00051e100)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5
+github.com/gin-gonic/gin.(*Context).Next(0xc00051e100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.RecoveryWithZap.func1(0xc00051e100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68
+github.com/gin-gonic/gin.(*Context).Next(0xc00051e100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.Ginzap.func1(0xc00051e100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce
+github.com/gin-gonic/gin.(*Context).Next(0xc00051e100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc00050c1a0, 0xc00051e100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:489 +0x618
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc00050c1a0, 0x1807260, 0xc00050e2a0, 0xc00051e200)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c
+net/http.serverHandler.ServeHTTP(0xc00050e0e0, 0x1807260, 0xc00050e2a0, 0xc00051e200)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3
+net/http.(*conn).serve(0xc000506140, 0x1809260, 0xc00006c100)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c
+
+2021-05-17T11:12:29.948+0800	INFO	logs/logs.go:105	[wraper-response] useTime=669, status=500, resp={"prompts":"服务器内部错误，请稍后重试","status":5000,"message":"server exception","data":null}
+2021-05-17T11:12:29.948+0800	INFO	zap@v0.0.1/zap.go:46	/security-certificate/user/test	{"status": 500, "method": "POST", "path": "/security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:12:29Z", "latency": 0.001169653}
+2021-05-17T11:13:40.228+0800	INFO	logs/logs.go:105	[wraper-request] url=/security-certificate/user/test, header=map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Cache-Control:[no-cache] Connection:[keep-alive] Content-Length:[78] Content-Type:[application/json] Postman-Token:[ef1a36ae-ae8c-4177-8944-c9c81a2e40bd] User-Agent:[PostmanRuntime/7.26.8]], body=&{0xc000092020 <nil> <nil> false true {0 0} false false false 0x12e6ce0}
+2021-05-17T11:13:40.229+0800	ERROR	logs/logs.go:138	open /keys/prvKey2.txt: no such file or directory
+2021-05-17T11:13:40.231+0800	ERROR	logs/logs.go:138	open ../keys/pubKey1.txt: no such file or directory
+2021-05-17T11:13:40.231+0800	ERROR	logs/logs.go:138	[wrapper-panic] error=public key error, stack=goroutine 35 [running]:
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1.1(0xc0000b2100, 0xc0001e3410, 0xc02095b90db25518, 0x1005d265d, 0x1b75ce0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:29 +0x33f
+panic(0x1675080, 0xc000094230)
+	/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9
+github.com/nju-iot/security-certificate/handlers.rsaEncrypt(0xc0000ca200, 0x4e, 0x200, 0xc0000d8000, 0xd8, 0x2d8, 0x0, 0xc0000c4000, 0x0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:105 +0x1b1
+github.com/nju-iot/security-certificate/handlers.EncryptData(0xc0000ca200, 0x4e, 0x200, 0x4e, 0x0, 0x0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:43 +0x89
+github.com/nju-iot/security-certificate/handlers.Test(0xc0000b2100, 0x1005d265d)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/test.go:19 +0x125
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1(0xc0000b2100)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:47 +0x164
+github.com/gin-gonic/gin.(*Context).Next(0xc0000b2100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc0000b2100)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5
+github.com/gin-gonic/gin.(*Context).Next(0xc0000b2100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.RecoveryWithZap.func1(0xc0000b2100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68
+github.com/gin-gonic/gin.(*Context).Next(0xc0000b2100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.Ginzap.func1(0xc0000b2100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce
+github.com/gin-gonic/gin.(*Context).Next(0xc0000b2100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000109ba0, 0xc0000b2100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:489 +0x618
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000109ba0, 0x1807260, 0xc0000bc000, 0xc0000b2000)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c
+net/http.serverHandler.ServeHTTP(0xc0002f40e0, 0x1807260, 0xc0000bc000, 0xc0000b2000)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3
+net/http.(*conn).serve(0xc0000a6000, 0x1809260, 0xc00009a040)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c
+
+2021-05-17T11:13:40.235+0800	INFO	logs/logs.go:105	[wraper-response] useTime=5957, status=500, resp={"prompts":"服务器内部错误，请稍后重试","status":5000,"message":"server exception","data":null}
+2021-05-17T11:13:40.235+0800	INFO	zap@v0.0.1/zap.go:46	/security-certificate/user/test	{"status": 500, "method": "POST", "path": "/security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:13:40Z", "latency": 0.007324239}
+2021-05-17T11:14:18.491+0800	INFO	logs/logs.go:105	[wraper-request] url=/security-certificate/user/test, header=map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Cache-Control:[no-cache] Connection:[keep-alive] Content-Length:[78] Content-Type:[application/json] Postman-Token:[65470a53-ef65-4c2d-87ba-85dcb3dcf4ba] User-Agent:[PostmanRuntime/7.26.8]], body=&{0xc00043d920 <nil> <nil> false true {0 0} false false false 0x12e6ce0}
+2021-05-17T11:14:18.496+0800	ERROR	logs/logs.go:138	open /keys/prvKey2.txt: no such file or directory
+2021-05-17T11:14:18.496+0800	ERROR	logs/logs.go:138	open ../keys/pubKey2.txt: no such file or directory
+2021-05-17T11:14:18.496+0800	ERROR	logs/logs.go:138	[wrapper-panic] error=public key error, stack=goroutine 8 [running]:
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1.1(0xc000462400, 0xc000191410, 0xc02095c29d93af90, 0x1aa8c5f47, 0x1b75ce0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:29 +0x33f
+panic(0x1675080, 0xc0004277f0)
+	/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9
+github.com/nju-iot/security-certificate/handlers.rsaEncrypt(0xc000482000, 0x4e, 0x200, 0xc000486000, 0xd8, 0x2d8, 0x0, 0xc00007c1a0, 0x0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:105 +0x1b1
+github.com/nju-iot/security-certificate/handlers.EncryptData(0xc000482000, 0x4e, 0x200, 0x4e, 0x0, 0x0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:43 +0x89
+github.com/nju-iot/security-certificate/handlers.Test(0xc000462400, 0x1aa8c5f47)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/test.go:19 +0x125
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1(0xc000462400)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:47 +0x164
+github.com/gin-gonic/gin.(*Context).Next(0xc000462400)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc000462400)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5
+github.com/gin-gonic/gin.(*Context).Next(0xc000462400)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.RecoveryWithZap.func1(0xc000462400)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68
+github.com/gin-gonic/gin.(*Context).Next(0xc000462400)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.Ginzap.func1(0xc000462400)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce
+github.com/gin-gonic/gin.(*Context).Next(0xc000462400)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc00009fd40, 0xc000462400)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:489 +0x618
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc00009fd40, 0x1807260, 0xc000478000, 0xc000462200)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c
+net/http.serverHandler.ServeHTTP(0xc0002a60e0, 0x1807260, 0xc000478000, 0xc000462200)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3
+net/http.(*conn).serve(0xc0004586e0, 0x1809260, 0xc00046c7c0)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c
+
+2021-05-17T11:14:18.499+0800	INFO	logs/logs.go:105	[wraper-response] useTime=2842, status=500, resp={"prompts":"服务器内部错误，请稍后重试","status":5000,"message":"server exception","data":null}
+2021-05-17T11:14:18.499+0800	INFO	zap@v0.0.1/zap.go:46	/security-certificate/user/test	{"status": 500, "method": "POST", "path": "/security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:14:18Z", "latency": 0.007900024}
+2021-05-17T11:14:42.232+0800	INFO	logs/logs.go:105	[wraper-request] url=/security-certificate/user/test, header=map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Cache-Control:[no-cache] Connection:[keep-alive] Content-Length:[78] Content-Type:[application/json] Postman-Token:[4c75cf3d-b4dd-4ea3-937e-56162811b7c5] User-Agent:[PostmanRuntime/7.26.8]], body=&{0xc000314000 <nil> <nil> false true {0 0} false false false 0x12e6ce0}
+2021-05-17T11:14:42.247+0800	ERROR	logs/logs.go:138	[wrapper-panic] error=public key error, stack=goroutine 10 [running]:
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1.1(0xc000320000, 0xc0001e3410, 0xc02095c88dea8000, 0xa0586215, 0x1b75ce0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:29 +0x33f
+panic(0x1675080, 0xc0003061b0)
+	/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9
+github.com/nju-iot/security-certificate/handlers.rsaEncrypt(0xc00032e200, 0x4e, 0x200, 0xc000344000, 0xd8, 0x2d8, 0x0, 0xc000324000, 0x0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:105 +0x1b1
+github.com/nju-iot/security-certificate/handlers.EncryptData(0xc00032e200, 0x4e, 0x200, 0x4e, 0x0, 0x0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:43 +0x89
+github.com/nju-iot/security-certificate/handlers.Test(0xc000320000, 0xa0586215)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/test.go:19 +0x125
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1(0xc000320000)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:47 +0x164
+github.com/gin-gonic/gin.(*Context).Next(0xc000320000)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc000320000)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5
+github.com/gin-gonic/gin.(*Context).Next(0xc000320000)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.RecoveryWithZap.func1(0xc000320000)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68
+github.com/gin-gonic/gin.(*Context).Next(0xc000320000)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.Ginzap.func1(0xc000320000)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce
+github.com/gin-gonic/gin.(*Context).Next(0xc000320000)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc0004381a0, 0xc000320000)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:489 +0x618
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc0004381a0, 0x1807260, 0xc00031a000, 0xc00018f000)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c
+net/http.serverHandler.ServeHTTP(0xc00043c0e0, 0x1807260, 0xc00031a000, 0xc00018f000)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3
+net/http.(*conn).serve(0xc000425220, 0x1809260, 0xc0003ebc80)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c
+
+2021-05-17T11:14:42.255+0800	INFO	logs/logs.go:105	[wraper-response] useTime=22228, status=500, resp={"prompts":"服务器内部错误，请稍后重试","status":5000,"message":"server exception","data":null}
+2021-05-17T11:14:42.255+0800	INFO	zap@v0.0.1/zap.go:46	/security-certificate/user/test	{"status": 500, "method": "POST", "path": "/security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:14:42Z", "latency": 0.023015448}
+2021-05-17T11:18:37.621+0800	INFO	logs/logs.go:105	[wraper-request] url=/security-certificate/user/test, header=map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Cache-Control:[no-cache] Connection:[keep-alive] Content-Length:[78] Content-Type:[application/json] Postman-Token:[b96e8be3-00cb-4ffe-9ea4-d6cdb4ed5c65] User-Agent:[PostmanRuntime/7.26.8]], body=&{0xc000434300 <nil> <nil> false true {0 0} false false false 0x12e6ce0}
+2021-05-17T11:18:37.623+0800	ERROR	logs/logs.go:138	[wrapper-panic] error=public key error, stack=goroutine 9 [running]:
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1.1(0xc00018ef00, 0xc0001e7410, 0xc020960365116140, 0x6dc57a0f, 0x1b75ce0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:29 +0x33f
+panic(0x16750a0, 0xc00048c000)
+	/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9
+github.com/nju-iot/security-certificate/handlers.rsaEncrypt(0xc00015ee00, 0x4e, 0x200, 0xc000480000, 0xd8, 0xd8, 0x0, 0xc0002f0d00, 0x0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:106 +0x1b1
+github.com/nju-iot/security-certificate/handlers.EncryptData(0xc00015ee00, 0x4e, 0x200, 0x4e, 0x0, 0x0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:44 +0x89
+github.com/nju-iot/security-certificate/handlers.Test(0xc00018ef00, 0x6dc57a0f)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/test.go:19 +0x125
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1(0xc00018ef00)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:47 +0x164
+github.com/gin-gonic/gin.(*Context).Next(0xc00018ef00)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc00018ef00)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5
+github.com/gin-gonic/gin.(*Context).Next(0xc00018ef00)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.RecoveryWithZap.func1(0xc00018ef00)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68
+github.com/gin-gonic/gin.(*Context).Next(0xc00018ef00)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.Ginzap.func1(0xc00018ef00)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce
+github.com/gin-gonic/gin.(*Context).Next(0xc00018ef00)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc0000c01a0, 0xc00018ef00)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:489 +0x618
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc0000c01a0, 0x1807340, 0xc000438000, 0xc00018ee00)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c
+net/http.serverHandler.ServeHTTP(0xc0000c40e0, 0x1807340, 0xc000438000, 0xc00018ee00)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3
+net/http.(*conn).serve(0xc000427040, 0x1809340, 0xc0003f19c0)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c
+
+2021-05-17T11:18:37.627+0800	INFO	logs/logs.go:105	[wraper-response] useTime=5914, status=500, resp={"prompts":"服务器内部错误，请稍后重试","status":5000,"message":"server exception","data":null}
+2021-05-17T11:18:37.627+0800	INFO	zap@v0.0.1/zap.go:46	/security-certificate/user/test	{"status": 500, "method": "POST", "path": "/security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:18:37Z", "latency": 0.006609921}
+2021-05-17T11:23:44.580+0800	INFO	logs/logs.go:105	[wraper-request] url=/security-certificate/user/test, header=map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Cache-Control:[no-cache] Connection:[keep-alive] Content-Length:[78] Content-Type:[application/json] Postman-Token:[2d4e1f00-5740-490b-885b-953b09eb2610] User-Agent:[PostmanRuntime/7.26.8]], body=&{0xc000304040 <nil> <nil> false true {0 0} false false false 0x12e6ce0}
+2021-05-17T11:23:44.585+0800	INFO	logs/logs.go:105	[wraper-response] useTime=3773, status=200, resp={"prompts":"","status":0,"message":"success","data":"Wwdh2LoF3gXfekFwGvWMkRmurMRc/TtcyeHSt6lBYyQii14hzd0hkmfIZMw1xvOXsa9AHr5sZ509z1kPM7AK76TKjh0fkzKTMuXssV/yIgLY/U7a3TlV/b7SJg2ytn//9sXsR5zER1Taw7G2yKTCw2krwDhEHO2o6nyjJbMwFxg="}
+2021-05-17T11:23:44.585+0800	INFO	zap@v0.0.1/zap.go:46	/security-certificate/user/test	{"status": 200, "method": "POST", "path": "/security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:23:44Z", "latency": 0.00571946}
+2021-05-17T11:25:04.174+0800	INFO	logs/logs.go:105	[wraper-request] url=/security-certificate/user/test, header=map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Cache-Control:[no-cache] Connection:[keep-alive] Content-Length:[78] Content-Type:[application/json] Postman-Token:[56026a94-7078-4898-b513-f4fd3b9fb7a0] User-Agent:[PostmanRuntime/7.26.8]], body=&{0xc00000e260 <nil> <nil> false true {0 0} false false false 0x12e6ce0}
+2021-05-17T11:25:04.185+0800	ERROR	logs/logs.go:138	[wrapper-panic] error=private key error, stack=goroutine 6 [running]:
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1.1(0xc00041e200, 0xc000209410, 0xc02096640a7857f8, 0x5fde9d20, 0x1b76ce0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:29 +0x33f
+panic(0x1675440, 0xc00005a520)
+	/usr/local/Cellar/go/1.15.3/libexec/src/runtime/panic.go:969 +0x1b9
+github.com/nju-iot/security-certificate/handlers.rsaDecrypt(0xc00002e100, 0x80, 0x80, 0xc000436000, 0x32c, 0x52c, 0x0, 0xc000400340, 0x0)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:128 +0x185
+github.com/nju-iot/security-certificate/handlers.DecryptData(0xc00002e100, 0x80, 0x80, 0x2, 0xc0002093b0, 0x1)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/encrypt.go:51 +0x89
+github.com/nju-iot/security-certificate/handlers.Test(0xc00041e200, 0x5fde9d20)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/handlers/test.go:22 +0x231
+github.com/nju-iot/security-certificate/resp.JSONOutPutWrapper.func1(0xc00041e200)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/resp/wrapper.go:47 +0x164
+github.com/gin-gonic/gin.(*Context).Next(0xc00041e200)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/nju-iot/security-certificate/middleware/cors.MiddlewareCors.func1(0xc00041e200)
+	/Users/tianduyingcai/Desktop/go/src/security-certificate/middleware/cors/cors.go:27 +0x1c5
+github.com/gin-gonic/gin.(*Context).Next(0xc00041e200)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.RecoveryWithZap.func1(0xc00041e200)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:109 +0x68
+github.com/gin-gonic/gin.(*Context).Next(0xc00041e200)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-contrib/zap.Ginzap.func1(0xc00041e200)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-contrib/zap@v0.0.1/zap.go:32 +0xce
+github.com/gin-gonic/gin.(*Context).Next(0xc00041e200)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/context.go:165 +0x3b
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc00040a1a0, 0xc00041e200)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:489 +0x618
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc00040a1a0, 0x1807660, 0xc00040e1c0, 0xc00041e100)
+	/Users/tianduyingcai/Desktop/go/pkg/mod/github.com/gin-gonic/gin@v1.7.1/gin.go:445 +0x15c
+net/http.serverHandler.ServeHTTP(0xc00040e0e0, 0x1807660, 0xc00040e1c0, 0xc00041e100)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2843 +0xa3
+net/http.(*conn).serve(0xc000402140, 0x18096a0, 0xc00006c200)
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:1925 +0x8ad
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.15.3/libexec/src/net/http/server.go:2969 +0x36c
+
+2021-05-17T11:25:04.190+0800	INFO	logs/logs.go:105	[wraper-response] useTime=14868, status=500, resp={"prompts":"服务器内部错误，请稍后重试","status":5000,"message":"server exception","data":null}
+2021-05-17T11:25:04.190+0800	INFO	zap@v0.0.1/zap.go:46	/security-certificate/user/test	{"status": 500, "method": "POST", "path": "/security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:25:04Z", "latency": 0.015726483}
+2021-05-17T11:27:05.179+0800	INFO	logs/logs.go:105	[wraper-request] url=/security-certificate/user/test, header=map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Cache-Control:[no-cache] Connection:[keep-alive] Content-Length:[78] Content-Type:[application/json] Postman-Token:[9977247a-5fde-493e-9525-e2309c5b314b] User-Agent:[PostmanRuntime/7.26.8]], body=&{0xc0004364c0 <nil> <nil> false true {0 0} false false false 0x12e6ce0}
+2021-05-17T11:27:05.187+0800	INFO	logs/logs.go:105	[wraper-response] useTime=6941, status=200, resp={"prompts":"","status":0,"message":"success","data":"ewogICAgInVzZXJfbmFtZSI6IlNLVDEiLAogICAgInF1ZXN0aW9uX2lkIjoxLAogICAgImFuc3dlciI6IndoYXQgdGhlIGhlbGw/Igp9"}
+2021-05-17T11:27:05.187+0800	INFO	zap@v0.0.1/zap.go:46	/security-certificate/user/test	{"status": 200, "method": "POST", "path": "/security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:27:05Z", "latency": 0.00832519}
+2021-05-17T11:28:41.758+0800	INFO	logs/logs.go:105	[wraper-request] url=/security-certificate/user/test, header=map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Cache-Control:[no-cache] Connection:[keep-alive] Content-Length:[78] Content-Type:[application/json] Postman-Token:[9d0c1778-8cb6-4bb3-b750-d110b16550a1] User-Agent:[PostmanRuntime/7.26.8]], body=&{0xc0003840a0 <nil> <nil> false true {0 0} false false false 0x12e6ce0}
+2021-05-17T11:28:41.768+0800	INFO	logs/logs.go:105	[wraper-response] useTime=6564, status=200, resp={"prompts":"","status":0,"message":"success","data":"ewogICAgInVzZXJfbmFtZSI6IlNLVDEiLAogICAgInF1ZXN0aW9uX2lkIjoxLAogICAgImFuc3dlciI6IndoYXQgdGhlIGhlbGw/Igp9"}
+2021-05-17T11:28:41.768+0800	INFO	zap@v0.0.1/zap.go:46	/security-certificate/user/test	{"status": 200, "method": "POST", "path": "/security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:28:41Z", "latency": 0.010175399}
+2021-05-17T11:30:29.056+0800	INFO	logs/logs.go:105	[wraper-request] url=/security-certificate/user/test, header=map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Cache-Control:[no-cache] Connection:[keep-alive] Content-Length:[78] Content-Type:[application/json] Postman-Token:[31e972cc-ebcc-4d04-acf0-ce9c958a83a2] User-Agent:[PostmanRuntime/7.26.8]], body=&{0xc000098180 <nil> <nil> false true {0 0} false false false 0x12e6ce0}
+2021-05-17T11:30:29.065+0800	INFO	logs/logs.go:105	[wraper-response] useTime=8728, status=200, resp={"prompts":"","status":0,"message":"success","data":"{\n    \"user_name\":\"SKT1\",\n    \"question_id\":1,\n    \"answer\":\"what the hell?\"\n}"}
+2021-05-17T11:30:29.065+0800	INFO	zap@v0.0.1/zap.go:46	/security-certificate/user/test	{"status": 200, "method": "POST", "path": "/security-certificate/user/test", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.26.8", "time": "2021-05-17T03:30:29Z", "latency": 0.009491843}

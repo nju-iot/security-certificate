@@ -10,6 +10,8 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+
+	"github.com/nju-iot/securiy-certificate/logs"
 )
 
 var prvKey2 []byte
@@ -17,20 +19,19 @@ var pubKey1 []byte
 var pubKey2 []byte
 
 func readFromFile() {
-	prvKey2=make([]byte){}
 	data, err := ioutil.ReadFile("../keys/prvKey2.txt")
 	if err != nil {
-		panic(err)
+		logs.Error("%v", err)
 	}
 	prvKey2 = data
 	data, err = ioutil.ReadFile("../keys/pubKey1.txt")
 	if err != nil {
-		panic(err)
+		logs.Error("%v", err)
 	}
 	pubKey1 = data
 	data, err = ioutil.ReadFile("../keys/pubKey1.txt")
 	if err != nil {
-		panic(err)
+		logs.Error("%v", err)
 	}
 	pubKey2 = data
 }
